@@ -87,6 +87,7 @@ let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_auto_refresh_includes = 1
 let g:syntastic_cpp_include_dirs = [ 'include', 'headers' , '../include', '.', 'src', "networktools"]
 let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_compiler_options = '-std=c++14'
 
 " let g:syntastic_debug=1
 let g:ycm_show_diagnostics_ui = 0

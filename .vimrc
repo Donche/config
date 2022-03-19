@@ -20,15 +20,16 @@ Plugin 'junegunn/rainbow_parentheses.vim'
 call vundle#end()
 filetype indent on
 
-" :set number
-:set nu 
-:set sts=2
-:set ts=2
-:set sw=2
-:set timeout timeoutlen=1000 
-:set ttimeoutlen=50
-:set listchars=tab:\|\ 
-:set list
+
+set nu 
+set sts=2
+set ts=2
+set sw=2
+set timeout timeoutlen=1000 
+set ttimeoutlen=50
+set listchars=tab:\|\ 
+set list
+set colorcolumn = 80
 
 " tabs
 nnoremap H gT

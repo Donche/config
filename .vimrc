@@ -37,6 +37,13 @@ set colorcolumn = 80
 let g:python_recommended_style = 0
 filetype plugin indent on
 
+
+" highlight search result
+set hlsearch
+hi Search guibg=LightBlue
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
 " tabs
 nnoremap H gT
 nnoremap L gt

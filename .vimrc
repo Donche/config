@@ -3,7 +3,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'rust-lang/rust.vim'
+Plugin 'dense-analysis/ale'
 Plugin 'valloric/youcompleteme'
 Plugin 'scrooloose/nerdtree'
 Plugin 'morhetz/gruvbox'
@@ -30,6 +32,10 @@ set ttimeoutlen=50
 set listchars=tab:\|\ 
 set list
 set colorcolumn = 80
+
+" python indent to 2 spaces
+let g:python_recommended_style = 0
+filetype plugin indent on
 
 " tabs
 nnoremap H gT
@@ -71,30 +77,18 @@ vnoremap <silent> <c-p> :exe "tabn ".g:lasttab<cr>
 
 " syntax
 syntax on
-" let g:syntastic_c_config_file='/home/oem/.syntastic_c_config_file'
 
-"syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" ALE
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_pattern_options_enabled = 1
+let g:ale_pattern_options = { '\.h$': { 'ale_linters': { 'cpp' : ['g++', 'cc', 'clang'] } } }
+let opts = '-Wall -Wextra -I. -I./networktools/'
+let g:ale_linters = { 'cpp': ['g++'] }
+let g:ale_cpp_cc_options    = opts
+let g:ale_cpp_gcc_options   = opts
+let g:ale_cpp_clang_options = opts
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_remove_include_errors = 1
-let g:syntastic_cpp_auto_refresh_includes = 1
-let g:syntastic_cpp_include_dirs = [ 'include', 'headers' , '../include', '.', 'src', "networktools"]
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_cpp_compiler_options = '-std=c++14'
-
-" let g:syntastic_debug=1
-let g:ycm_show_diagnostics_ui = 0
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
 
 "NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -166,6 +160,11 @@ let g:rainbow_active = 1
 " youcompleteme
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_show_diagnostics_ui = 1
 
 " markdown codeblock highlighting
 let g:markdown_fenced_languages = ['html', 'python', 'c', 'cpp', 'bash=sh']
+
+" terminal emulator, use esc to return to normal mode
+tnoremap <Esc> <C-\><C-n>

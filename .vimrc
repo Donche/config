@@ -91,10 +91,14 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_pattern_options_enabled = 1
 let g:ale_pattern_options = { '\.h$': { 'ale_linters': { 'cpp' : ['g++', 'cc', 'clang'] } } }
 let opts = '-Wall -Wextra -I. -I./networktools/'
-let g:ale_linters = { 'cpp': ['g++'] }
+let g:ale_linters = { 'cpp': ['g++'], 'rust': ['analyzer']}
 let g:ale_cpp_cc_options    = opts
 let g:ale_cpp_gcc_options   = opts
 let g:ale_cpp_clang_options = opts
+let g:ale_completion_enabled = 1
+
+set wildmode=longest,list,full
+set wildmenu
 
 
 "NERDTree
@@ -160,6 +164,7 @@ else
   map <C-l> <C-w>l
 endif
 
+set backspace=indent,eol,start
 
 " parentheses
 let g:rainbow_active = 1

@@ -31,10 +31,10 @@ set timeout timeoutlen=1000
 set ttimeoutlen=50
 set listchars=tab:\|\ 
 set list
-set colorcolumn = 80
+set colorcolumn=80
 
 " python indent to 2 spaces
-let g:python_recommended_style = 0
+" let g:python_recommended_style = 0
 filetype plugin indent on
 
 
@@ -91,7 +91,7 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_pattern_options_enabled = 1
 let g:ale_pattern_options = { '\.h$': { 'ale_linters': { 'cpp' : ['g++', 'cc', 'clang'] } } }
 let opts = '-Wall -Wextra -I. -I./networktools/'
-let g:ale_linters = { 'cpp': ['g++'], 'rust': ['analyzer']}
+let g:ale_linters = { 'cpp': ['g++'], 'rust': ['analyzer'], 'python': ['pylint', 'bandit', 'mypy']}
 let g:ale_cpp_cc_options    = opts
 let g:ale_cpp_gcc_options   = opts
 let g:ale_cpp_clang_options = opts

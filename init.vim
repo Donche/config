@@ -6,6 +6,7 @@ call plug#begin()
 " auto-complete, syntax-related
 Plug 'vim-scripts/delimitMate.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " tree
 Plug 'scrooloose/nerdtree'
 " theme
@@ -90,6 +91,10 @@ require('lualine').setup {
   options = {theme = 'codedark'},
 }
 require("toggleterm").setup{}
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "cpp", "c", "python", "rust" },
+  highlight = {enable = true, additional_vim_regex_highlighting = false},
+}
 END
 
 " markdown codeblock highlighting
